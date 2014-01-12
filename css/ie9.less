@@ -1,0 +1,33 @@
+/**
+ * This file contains fixes for IE9 and below on Beardesign.hu
+ * This is the LESS source for ie9.css
+ * Must be included after the main 'styles.css'
+ * @author  Tamas Kuti
+*/
+
+//variables
+//colors
+@blue2: #1a7bc6;
+@blue3: #3c93d7;
+
+//mixins
+.ie_gradient(@color1: @blue3, @color2: @blue2){
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0)";
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0);
+}
+
+.btn{
+    .ie_gradient;
+}
+
+a.btn:active,
+a.btn:focus,
+.btn:active,
+.btn:focus{
+    .ie_gradient(@blue2, @blue3);
+}
+
+.click_protect{
+    background: url(../images/blank.gif) repeat 0 0;
+}
+

@@ -1,0 +1,111 @@
+/**
+ * This file contains fixes for IE8 and below on Beardesign.hu
+ * This is the LESS source for ie_lte_8.css
+ * Must be included after the main 'styles.css'
+*/
+
+//variables
+//sizes
+@bearHeadWidth: 120px;
+@bearHeadHeight: 137px;
+@logoTypeW: 130px;
+@logoTypeH: 85px;
+
+//mixins
+.offscreen(@w, @h){
+    width: @w;
+    height: @h;
+    right: -@w;
+    bottom: -@h;
+}
+
+.width_height(@w: 360px, @h: 360px){
+    width: @w;
+    height: @h;
+}
+
+.postion_center(@w){
+    width: @w;
+    left: 50%;
+    margin-left: ((@w / 2) * -1);
+}
+
+
+//media query emulation - see script.js
+//desktop sizes above 1220px width
+.desktop_size_2 #intro .centered_text,
+.desktop_size_3 #intro .centered_text{
+    width: 100%;
+}
+
+//desktop sizes between 1220px and 1440px width
+body.desktop_size_2{
+    font-size: 1.125em;
+}
+
+.desktop_size_2 #logo{
+    .width_height(400px, 400px);
+}
+
+.desktop_size_2 #logo_head{
+    .postion_center((@bearHeadWidth+20));
+    height: (@bearHeadHeight+20);
+}
+
+.desktop_size_2 #logo_type{
+    .postion_center((@logoTypeW+20));
+    height: (@logoTypeH+20);
+}
+
+.desktop_size_2 .portrait_cont{
+    .width_height(150px, 150px);
+}
+
+.desktop_size_2 #insta_photos li{
+    .width_height(140px, 140px);
+}
+
+.desktop_size_2 #back_to_top_link{
+    .offscreen(50px, 50px);
+}
+
+//desktop sizes above 1440px width
+body.desktop_size_3{
+    font-size: 1.25em;
+}
+
+.desktop_size_3 #logo{
+    .width_height(440px, 440px);
+}
+
+.desktop_size_3 #logo_head{
+    .postion_center((@bearHeadWidth+40));
+    height: (@bearHeadHeight+40);
+}
+
+.desktop_size_3 #logo_type{
+    .postion_center((@logoTypeW+20));
+    height: (@logoTypeH+20);
+}
+
+.desktop_size_3 .portrait_cont{
+    .width_height(200px, 200px);
+}
+
+.desktop_size_3 .portfolio_cover_pic{
+    width: 940px;
+    height: 529px;
+    max-height: none;
+}
+
+.desktop_size_3 .centered_text{
+    width: 90%;
+}
+
+.desktop_size_3 #insta_photos li{
+    .width_height(150px, 150px);
+}
+
+.desktop_size_3 #back_to_top_link{
+    .offscreen(60px, 60px);
+}

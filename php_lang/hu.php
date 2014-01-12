@@ -1,0 +1,30 @@
+<?php
+    $dict = array(
+        'title' => 'BearDesign',
+        'keywords' => 'Kuti Tamás, webdesign, sitebuild, HTML5, CSS, CSS3, jQuery',
+        'desc' => 'Helló Világ! Ez itt a Kuti Tamás front-end fejlesztő/webdizájner személyes zuga az Interneten',
+        'og_title' => 'Beardesign.hu,',
+        'og_desc' => 'Helló Világ! Ez itt a Kuti Tamás front-end fejlesztő/webdizájner személyes zuga az Interneten',
+        'my_name' => 'Kuti Tamás',
+        'intro_txt' => '<em class="hello">Üdv!</em> A nevem <em class="js_donthyphenate">Kuti&nbsp;Tamás</em>, weboldalakat rajzolok és kódolok. Korábban a <a href="http://proaction.hu" class="proa js_donthyphenate">proactionnél</a> voltam, jelenleg pedig a <a href="http://carnationgroup.com" class="carna js_donthyphenate">Carnationnél</a> vagyok <em>front&ndash;end fejlesztő</em>. Ez itt az én személyes zugom az Interneten.',
+        'portfolio_title' => 'Néhány oldal, amin dolgoztam',
+        'vszek_title' => 'Vszek.hu',
+        'vszek_txt' => 'A Semmelweis Egyetem Városmajor Szív- és Érgyógyászati Klinikája egyszerre lát el gyógyítási, oktatási és kutatási szerepet. A weboldal is ennek a &bdquo;hármasságnak&rdquo; megfelelően lett kialakíktva. A projektet a proaction csapata hozta tető alá, melyben az én szerepem a front&ndash;end fejlesztés volt.',
+        'azizlelo_title' => 'Az Ízlelő',
+        'azizlelo_alt' => 'AzÍzlelő.hu - Helyben vagy',
+        'azizlelo_txt' => 'Az Ízlelő célja csokorba gyűjteni és népszerűsíteni a helyi kistermelőket, piacokat és kézműves alapanyagokból dolgozó vendéglátókat. Az oldal egyedi fejlesztésű, <span class="js_donthyphenate">Google</span> Maps API-ra épülő térképes keresővel és mindenféle képernyőhöz alkalmazkodó layouttal igyekszik segíteni a felhasználókat abban, hogy mindig tudják hova kell menni házikolbászért vagy éppen kecskesajtért. Az arculat <a href="http://www.behance.net/gallery/IZLELO/12136259">Laki&nbsp;Eszter</a> munkáját dícséri, az oldalt készítette a proaction csapata.',
+        'arthur_title' => 'ArthurSofor.hu mobil verzió',
+        'arthur_txt' => 'Egy sofőrszolgálat esetében a mobilos jelenlét egyértelmű és logikus lépés. De <em>hogyan</em> csináljuk? A cég már meglévő oldalának responsive átalakítása költséges és időigényes lett volna, a natív app fejlesztéssel ugyanez volt a helyzet. Ezért esett a választás a különálló mobil oldal készítésére. Az oldal a proactionnél készült, az én feladatom volt a grafikai tervezés, a front&ndash;end fejlesztés és a CMS integráció is.',
+        'seniorkempo_title' => 'SeniorKempo.hu',
+        'seniorkempo_txt' => 'A Szenior Kempo Bajnokságot 2012&ndash;ben hívták életre, azzal a céllal, hogy lehetőséget teremtsen minden 35 év feletti harcművésznek &ndash; stílustól és tapasztalattól függetlenül &ndash;, hogy megmutasa tudását. A weboldal fejlesztése mellett, verseny arculatának, illetve különféle online és offline promóciós anyagok megtervezése is az én feladatom volt.',
+        'matya_title' => 'A Szavak Embere',
+        'matya_txt' => 'Mattyasovszky&nbsp;Ádám (<em class="js_donthyphenate">Matya</em>), a szavak embere. Megélhetésként reklámszövegeket ír, szereti a jó söröket és egy hardcore zenekarban dobol. Egy egyedi Tumblr témával és az ahhoz tartozó logóval segítettem neki, hogy gondolatait az Interneten szabadjára engedje. Az oldal korábban, a <a href="http://matyaforreal.freeblog.hu/">Világok&nbsp;Arca</a> címen működött a freeblog.hu alatt, melyet szintén én készítettem.',
+        'btn_txt' => 'Az oldal megtekintése',
+        'tag_identity' => 'arculat',
+        'tag_freelance' => 'szabadúszó',
+        'social_title' => 'Megtalálhatsz itt is',
+        'word_photo' => 'fotók',
+        'zsolt_name' => 'Nagy Zsolt',
+        'lang_link' => '<a href="index.php?lang=en">English</a>'
+    );
+?>
