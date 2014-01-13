@@ -175,7 +175,7 @@
         itemWidth = $items.width(); //the width of a single LI
         itemsWidth = itemWidth * itemNum; //the total width of the image strip
         initailWindowWidth = document.documentElement.clientWidth; //save the window width so we can chack if it was resized
-        nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth)//the number of offscreen items
+        nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth); //the number of offscreen items
         offsetDif = windowWidth - ((itemNum - nonVisibleItemsNum) * itemWidth); //the difference between the maximum visible itmes width and the total screen width
         counter = 0;
         
@@ -220,8 +220,8 @@
             if (windowWidth !== initailWindowWidth) {
                 itemWidth = $items.width();
                 itemsWidth = itemWidth * itemNum;
-                offsetDif = windowWidth - (Math.floor(windowWidth / itemWidth) * itemsWidth);
-                nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth)
+                nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth);
+                offsetDif = windowWidth - ((itemNum - nonVisibleItemsNum) * itemWidth);
             };
             
             //increment the counter
