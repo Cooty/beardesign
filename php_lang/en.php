@@ -6,7 +6,7 @@
         'og_title' => 'Beardesign.hu,',
         'og_desc' => 'Hello World! This is the personal website of Tamas Kuti, front-end developer/webdesigner from Budapest Hungary',
         'my_name' => 'Tamás Kuti',
-        'intro_txt' => '<em class="hello">Hi!</em> My name is <em>Tamás&nbsp;Kuti</em>, I design and code websites. Currently I’m a <em>front&ndash;end developer</em> at <a href="http://carnationgroup.com" class="carna js_donthyphenate">Carnation Group</a> and formerly at <a href="http://proaction.hu" class="proa js_donthyphenate">proaction</a>. This is my personal space on the Internet.',
+        'intro_txt' => '<em class="hello">Hi!</em> My name is <em>Tamás&nbsp;Kuti</em>, I design and code websites. Currently I’m a <em>front&ndash;end developer</em> at <a href="http://cee.possible.com/" class="carna">POSSIBLE CEE</a> and formerly at <a href="http://proaction.hu" class="proa">proaction</a>. This is my personal space on the Internet.',
         'portfolio_title' => 'A few sites I have worked on',
         'vszek_title' => 'Vszek.hu',
         'vszek_txt' => 'The Heart and Vascular Center of Semmelweis University servers as both medical and educational facility and also as a research centre. The website was designed to reflect this triple role. The site was made by the team at proaction, my role in the project was front&ndash;end development.',
@@ -19,6 +19,10 @@
         'seniorkempo_txt' => 'The Senior Kempo Championship was first organized in 2012, the goal was to give an opportunity to every martial artist past the age of 35 &mdash; from every style and ranking &mdash; to test their skills. I have developed the website of the tournament and also produced various offline and online promotional material.',
         'matya_title' => 'A Szavak Embere (<em>The man of words</em>)',
         'matya_txt' => 'Ádám&nbsp;Mattyasovszky is a man of words. He makes a living as a copywritter, he drinks good beer and plays drums in a hardcore band. I helped him take his thoughts to the web with a custom Tumblr theme and a logo to go along with it. The site had a former incarnation as <a href="http://matyaforreal.freeblog.hu/">Világok&nbsp;Arca</a> (a wordplay, twisting the hungarian title of H. G. Wells’s War of the Worlds), running under freeblog.hu which was also built by me.',
+        'matrakempo_title' => 'Mátra Kempó SE website and identity',
+        'matrakempo_txt' => 'The Mátra Kempo SE has been training Zen Bu Kan Kempo in and around Gyöngyös since 2009. I was asked by the club’s leader sensei Dávid Dencinger to create their website and a visual identity that goes along with it. I’m really glad that now they can communicate that unique blend of friendly vibes and professional attitude that they represent in martial arts.',
+        'fszi_title' => 'Felelős Szülők Iskolája',
+        'fszi_txt' => 'Felelős Szülők Iskolája - <em>School of Responsible Parents</em> - is a series of events, a magazine and a community, founded by young moms and dads, who aim to promote a concious and modern attitude towards parenting and family life. ',
         'btn_txt' => 'Launch site',
         'tag_identity' => 'identity',
         'tag_freelance' => 'freelance',
@@ -28,6 +32,8 @@
         'lang_link' => '<a href="index.php?lang=hu">Magyar</a>',
         'lang_setting_txt' => 'The language of the site has been automatically set to English based on your browser\'s setting.',
         'lang_ok_btn' => 'OK, I got it',
-        'lang_hu_btn' => 'Magyar oldalt kérek!'
+        'lang_hu_btn' => 'Magyar oldalt kérek!',
+        'back_to_top' => 'Back to top',
+        'loading' => 'Loading...'
     );
 ?>

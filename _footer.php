@@ -8,4 +8,4 @@
     <?=$dict['zsolt_name']?></a> &bull;
     <?=$dict['lang_link']?>
 </p>
-<a id="back_to_top_link" href="#" title="Vissza a tetjére"></a>
+<a id="back_to_top_link" href="#" title="<?=$dict['back_to_top']?>"></a>

@@ -18,8 +18,8 @@
 @lightGrey2: #B9B9B9;
 @darkGrey: #2E2E2E;
 @proaTxt: #A0CF1B;
-@carnaTxt: #FD4239;
-@carnaPurple: #490E6F;
+@carnaTxt: #000;
+@carnaPurple: #fff;
 //sizes
 @bearHeadWidth: 120px;
 @bearHeadHeight: 137px;
@@ -131,6 +131,28 @@
     }
 }
 
+.loading-text-animation(){
+    @-webkit-keyframes blink-bloading-text{
+        0%{opacity: .2}
+        100%{opacity: .6}
+    }
+    
+    @-moz-keyframes blink-bloading-text{
+        0%{opacity: .2}
+        100%{opacity: .6}
+    }
+    
+    @-o-keyframes blink-bloading-text{
+        0%{opacity: .2}
+        100%{opacity: .6}
+    }
+    
+    @keyframes blink-bloading-text{
+        0%{opacity: .2}
+        100%{opacity: .6}
+    }
+}
+
 .rotate(@value: 45deg){
     transform: rotate(@value);
     -ms-transform: rotate(@value);
@@ -144,6 +166,13 @@
     -webkit-animation: floating_bear_head ease-in @speed infinite alternate;
     -moz-animation: floating_bear_head ease-in @speed infinite alternate;
     animation: floating_bear_head ease-in @speed infinite alternate;
+}
+
+.loadin_text_animation(@speed: .6s){
+    -o-animation: blink-bloading-text ease-in @speed infinite alternate;
+    -webkit-animation: blink-bloading-text ease-in @speed infinite alternate;
+    -moz-animation: blink-bloading-text ease-in @speed infinite alternate;
+    animation: blink-bloading-text ease-in @speed infinite alternate;
 }
 
 .text_size_adjust(@value: 100%){
@@ -188,6 +217,18 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+
+.no-tap{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+.hyphenate{
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 //font face declarations
@@ -331,6 +372,7 @@ blockquote, q {
 
 /*==========layout==========*/
 body{
+    min-width: 240px;
     color: @txt;
     font: normal 1em/1.15em @dejavu;
     overflow-x: hidden;
@@ -444,6 +486,7 @@ body{
     width: 90%;
     max-height: 486px;
     .box-shadow(0, 0, 2px, 0, 0, 0, 0, .25);
+    .transition(~".3s width ease-in, .3s height ease-in");
 }
 
 .portfolio_item_title{
@@ -486,7 +529,7 @@ body{
     font-size: 0;
     line-height: 0;
     white-space: nowrap;
-    .transition(~"transform 0.3s ease-in 0s, margin 0.3s ease-in 0s");
+    .transition(~"all 0.3s ease-in 0s");
 }
 
 #insta_photos li{
@@ -572,10 +615,12 @@ em strong, strong em{
     margin-right: auto;
     text-align: left;
     width: 81.25%;
+    .hyphenate;
 
     a:link{
         text-decoration:none;
         .link_rules;
+        .no-tap;
     }
     
     a:visited{
@@ -601,6 +646,8 @@ em strong, strong em{
         .link_bg_change(@carnaPurple, @carnaTxt);
     }
 }
+
+.js_donthyphenate { white-space: nowrap; }
 
 .intro_txt{
     font-size: 1.4375em;
@@ -659,7 +706,6 @@ em strong, strong em{
     
     &.warning{
         .height_line-height(30px);
-        font-size: 14px;
         border-color: #fff;
         padding: 6px 19px;
         .border_radius(3px);
@@ -807,7 +853,7 @@ em strong, strong em{
 #back_to_top_link .icon,
 .insta_arrow:after,
 .insta_arrow .icon{
-    background-image: url(../images/sprites.svg);
+    background-image: url(//dl.dropboxusercontent.com/u/6251317/sprites.svg);
 }
 
 .no-svg .icon_out:before,
@@ -818,13 +864,25 @@ em strong, strong em{
 .no-svg #back_to_top_link .icon,
 .no-svg .insta_arrow:after,
 .no-svg .insta_arrow .icon{
-    background-image: url(../images/sprites.png);
+    background-image: url(//dl.dropboxusercontent.com/u/6251317/sprites.png);
 }
 
 .icon-linkedin,
 .contact_icon.linkedin_icon:before,
 .contact_icon.linkedin_icon .contact_icon_icon{
     background-position: 0 0;
+}
+
+.icon-codepen,
+.contact_icon.codepen_icon:before,
+.contact_icon.codepen_icon .contact_icon_icon{
+    background-position: -32px -16px;
+}
+
+.icon-behance,
+.contact_icon.behance_icon:before,
+.contact_icon.behance_icon .contact_icon_icon{
+    background-position: 0 -16px;
 }
 
 .icon-github,
@@ -906,6 +964,27 @@ em strong, strong em{
     background-color: #3F729B;
 }
 
+.no-csstransitions .contact_icon.behance_icon:hover,
+.no-csstransitions .contact_icon.behance_icon:active,
+.no-csstransitions .contact_icon.behance_icon:focus,
+.behance_icon .color_layer{
+    background-color: #0079ff;
+}
+
+.no-csstransitions .contact_icon.codepen_icon:hover,
+.no-csstransitions .contact_icon.codepen_icon:active,
+.no-csstransitions .contact_icon.codepen_icon:focus,
+.codepen_icon .color_layer{
+    background-color: #f7ec13;
+}
+
+.no-csstransitions .contact_icon.github_icon:hover,
+.no-csstransitions .contact_icon.github_icon:active,
+.no-csstransitions .contact_icon.github_icon:focus,
+.github_icon .color_layer{
+    background-color: #9CDAF0;
+}
+
 .color_layer{
     z-index: 10;
     position: absolute;
@@ -937,6 +1016,7 @@ em strong, strong em{
 #back_to_top_link{
     background-color: #000;
     background-color: rgba(0, 0, 0, 0.9);
+    .no-tap;
 }
 
 #back_to_top_link:hover,
@@ -961,7 +1041,7 @@ em strong, strong em{
 }
 
 //warning DIV
-.warning{
+.warning_panel{
     position: fixed;
     z-index: 400;
     left: 0;
@@ -977,6 +1057,48 @@ em strong, strong em{
     p{
         margin-bottom: .8em;
     }
+}
+
+//loading layer
+
+// keyframes for the text animation
+.loading-text-animation;
+
+.loading-layer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @lightGrey;
+    
+    .loading-layer-content {
+        position: absolute;
+        width: 200px;
+        height: 128px;
+        top: 50%;
+        left: 50%;
+        margin: -64px 0 0 -100px;
+        text-align: center;
+    }
+    
+    .loading-logo {
+        display: block;
+        width: 88px;
+        height: 100px;
+        margin: 0 auto 10px auto;
+    }
+    
+    .loading-animation-text {
+        font-size: 12px;
+        font-family: sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: none;
+        .loadin_text_animation;
+    }
+    
 }
 
 //media queries
@@ -1121,14 +1243,17 @@ em strong, strong em{
     }
     
     .portfolio_cover_pic{
-        -webkit-box-shadow: none;
-        box-shadow: none;
         max-width: 100%;
         min-width: 320px;
         min-height: 180px;
+        max-height: 320px;
         width: auto;
+        height: auto;
         padding: 0;
         border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        .border_radius(0);
     }
     
     .tags{
@@ -1166,4 +1291,9 @@ em strong, strong em{
     .section_heading{
         font-size: 1.8em;
     }
+    
+    .portfolio_cover_pic{
+        max-height: 240px;
+    }
+
 }

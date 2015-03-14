@@ -6,7 +6,7 @@
         'og_title' => 'Beardesign.hu,',
         'og_desc' => 'Helló Világ! Ez itt a Kuti Tamás front-end fejlesztő/webdizájner személyes zuga az Interneten',
         'my_name' => 'Kuti Tamás',
-        'intro_txt' => '<em class="hello">Üdv!</em> A nevem <em class="js_donthyphenate">Kuti&nbsp;Tamás</em>, weboldalakat rajzolok és kódolok. Korábban a <a href="http://proaction.hu" class="proa js_donthyphenate">proactionnél</a> voltam, jelenleg pedig a <a href="http://carnationgroup.com" class="carna js_donthyphenate">Carnationnél</a> vagyok <em>front&ndash;end fejlesztő</em>. Ez itt az én személyes zugom az Interneten.',
+        'intro_txt' => '<em class="hello">Üdv!</em> A nevem <em>Kuti&nbsp;Tamás</em>, weboldalakat rajzolok és kódolok. Korábban a <a href="http://proaction.hu" class="proa js_donthyphenate">proactionnél</a> voltam, jelenleg pedig a <a href="http://cee.possible.com/" class="carna">POSSIBLE-nél</a> vagyok <em>front&ndash;end fejlesztő</em>. Ez itt az én személyes zugom az Interneten.',
         'portfolio_title' => 'Néhány oldal, amin dolgoztam',
         'vszek_title' => 'Vszek.hu',
         'vszek_txt' => 'A Semmelweis Egyetem Városmajor Szív- és Érgyógyászati Klinikája egyszerre lát el gyógyítási, oktatási és kutatási szerepet. A weboldal is ennek a &bdquo;hármasságnak&rdquo; megfelelően lett kialakíktva. A projektet a proaction csapata hozta tető alá, melyben az én szerepem a front&ndash;end fejlesztés volt.',
@@ -19,12 +19,18 @@
         'seniorkempo_txt' => 'A Szenior Kempo Bajnokságot 2012&ndash;ben hívták életre, azzal a céllal, hogy lehetőséget teremtsen minden 35 év feletti harcművésznek &ndash; stílustól és tapasztalattól függetlenül &ndash;, hogy megmutasa tudását. A weboldal fejlesztése mellett, verseny arculatának, illetve különféle online és offline promóciós anyagok megtervezése is az én feladatom volt.',
         'matya_title' => 'A Szavak Embere',
         'matya_txt' => 'Mattyasovszky&nbsp;Ádám (<em class="js_donthyphenate">Matya</em>), a szavak embere. Megélhetésként reklámszövegeket ír, szereti a jó söröket és egy hardcore zenekarban dobol. Egy egyedi Tumblr témával és az ahhoz tartozó logóval segítettem neki, hogy gondolatait az Interneten szabadjára engedje. Az oldal korábban, a <a href="http://matyaforreal.freeblog.hu/">Világok&nbsp;Arca</a> címen működött a freeblog.hu alatt, melyet szintén én készítettem.',
+        'matrakempo_title' => 'Mátra Kempó SE weboldal és arculat',
+        'matrakempo_txt' => 'A Mátra Kempo SE már 2009 óta képviseli a  Zen Bu Kan Kempo stílust Gyöngyösön és környékén. Denciger Dávid sensei kért meg, hogy készítsem el nekik a weboldalukat és azzal együtt egy egységes, vizuális arculatot is. Nagyon örülök, hogy most már a nagyvilág felé is meg tudják mutatni azt a profi hozzáállást és barátságos légkört, ami harcművészetben képviselnek.',
+        'fszi_title' => 'Felelős Szülők Iskolája',
+        'fszi_txt' => 'A Felelős Szülők Iskolája egy rendezvény sorozat, egy magazin és egy közösség egyben, melyet olyan fiatal szülők alapítottak, akik tudatos és modern szemlélettel áltak hozzá a családalapításhoz és a gyerekneveléshez, ezt a mentalitást, pedig másokkal is meg szerették volna osztani.',
         'btn_txt' => 'Az oldal megtekintése',
         'tag_identity' => 'arculat',
         'tag_freelance' => 'szabadúszó',
         'social_title' => 'Megtalálhatsz itt is',
         'word_photo' => 'fotók',
         'zsolt_name' => 'Nagy Zsolt',
-        'lang_link' => '<a href="index.php?lang=en">English</a>'
+        'lang_link' => '<a href="index.php?lang=en">English</a>',
+        'back_to_top' => 'Vissza a tetjére',
+        'loading' => 'Türelem tornaterem...'
     );
 ?>

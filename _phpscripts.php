@@ -3,6 +3,7 @@
     $uaCookieName = 'ua_cookie';
     $uaCookieExp = time()+60*60*24*365;
     $ismobile = false;
+    $productionAssetSuffix = (isset($_REQUEST['dev']) ? '' : '.min');
     
     //only do the testing when the cookie has not been set up
     if(!isset($_COOKIE[$uaCookieName])){

@@ -11,16 +11,16 @@
 		<?php include_once('_intro.php'); ?>
 	    </section><!--end intro-->
 	    
+        <!--contacts and social icons-->
+	    <section id="contacts" class="content_section">
+		  <?php include_once('_contacts.php'); ?>
+	    </section><!--end contacts and social icons-->
+        
 	    <!--portfolio-->
 	    <section id="portfolio" class="content_section">
-		<?php include_once('_portfolio.php'); ?>
-
+		  <?php include_once('_portfolio.php'); ?>
 	    </section><!--end portfolio-->
-	    
-	    <!--contacts and social icons-->
-	    <section id="contacts" class="content_section">
-		<?php include_once('_contacts.php'); ?>
-	    </section><!--end contacts and social icons-->
+        
 	</div><!--end full site wrapper-->
 	
 	<!--footer-->
@@ -31,6 +31,13 @@
 	<?php //Notify the user that the language of the site has been automaticaly set ?>
 	
 	<?php include_once('_langwarning.php'); ?>
+	
+	<div class="loading-layer">
+	    <div class="loading-layer-content">
+		<img src="images/logo_loading.png" alt="Bear Design" class="loading-logo">
+		<span class="loading-animation-text"><?=$dict['loading']?></span>
+	    </div>
+	</div>
 	
 	<?php include_once('_js.php'); ?>
     </body>

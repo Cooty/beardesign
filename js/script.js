@@ -8,17 +8,37 @@
 //Everything goes into jQuery scope to avoid globals
 (function($) {
     //define our variables
-    var resizeTimer, $tags, $contactIcons, $theFooter, $portrait, $backToTopLink, introSectionH, scrollTimer, $body, windowWidth;
+    var resizeTimer,
+    $tags = jQuery('.js_add_tag_elements'),
+    $contactIcons = jQuery('.js_add_icon'),
+    $theFooter = jQuery('#the_footer'),
+    $portrait = jQuery('.portrait'),
+    $backToTopLink = jQuery('#back_to_top_link'),
+    introSectionH = jQuery('#intro').height(), //needed for showing/hiding the back to top button
+    scrollTimer,
+    $body = jQuery('body'),
+    windowWidth = document.documentElement.clientWidth,
+    $langWarning = jQuery(document.getElementById('language_setting')),
+    seenLangSettings = window.localStorage ? localStorage.seenLangSetting : getCookie('seenLangSetting'),
+    $loadingLayer = jQuery('.loading-layer');
     
-    //collelct and cache some jQuery collections
-    $tags = jQuery('.js_add_tag_elements');
-    $contactIcons = jQuery('.js_add_icon');
-    $theFooter = jQuery('#the_footer');
-    $portrait = jQuery('.portrait');
-    $backToTopLink = jQuery('#back_to_top_link');
-    introSectionH = jQuery('#intro').height(); //needed for showing/hiding the back to top button
-    $body = jQuery('body');
-    windowWidth = document.documentElement.clientWidth;
+    //remove the loading layer
+    $(window).on('load', function() {
+        
+        $loadingLayer.fadeOut(300, function() {
+            //animate the portrait
+            //if the browser support CSS3 transitions just add a class
+            if (Modernizr.csstransitions) {
+                $portrait.addClass('show_animation');
+            }else{
+                //if not do some jQuery magic
+                $portrait.animate({
+                        width   : $portrait.parent().css('width'),
+                        height  : $portrait.parent().css('height')
+                    }, 500);
+            };    
+        });
+    });
     
     //animated scroll to top for the back to top link
     $backToTopLink.on('click', function(e){
@@ -70,8 +90,9 @@
     //@cname    String  the name of the cookie we want to get
     //@return   String  the value of the cookie, empty string if the cookie was not found
     function getCookie(cname){
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
+        var name = cname + "=",
+        ca = document.cookie.split(';');
+        
         for (var i=0; i<ca.length; i++){
                 var c = ca[i].trim();
                 if (c.indexOf(name) == 0)
@@ -83,9 +104,13 @@
     //hides the language setting warning DIV
     //sets a cookie not to show the DIV again on next visit
     function hideLangWarning() {
-        var $warningDiv = jQuery('#language_setting');
-        $warningDiv.slideUp(250, function(){
-                setCookie('seenLangSetting', '1', 365);
+        var $warningDiv = jQuery(document.getElementById('language_setting'));
+        $warningDiv.slideUp(250, function() {
+                if (window.localStorage) {
+                    localStorage.seenLangSetting = '1';
+                }else {
+                    setCookie('seenLangSetting', '1', 365);   
+                }
             });
     };
     
@@ -96,11 +121,8 @@
     
     //wrapper for everything that should happen on the resize event
     function resizeFunction() {
-        //rerun Hypenator, because of reflowed text
-        Hyphenator.run();
-        
         //recalculate the intro section's height
-        introSectionH = jQuery('#intro').height();
+        introSectionH = jQuery(document.getElementById('intro')).height();
         
         //recalculate the browser window's width
         windowWidth = document.documentElement.clientWidth;
@@ -129,7 +151,7 @@
     });
     
     //add the email address to the email link
-    jQuery('#js_email_link').attr('href', 'mailto:hello@beardesign.hu');
+    jQuery('#js_email_link').attr('href', 'mailto:cooty13@gmail.com');
     
     //add hover effect elements for the contact icons, but only if CSS3 transitions are supported
     if (Modernizr.csstransitions) {
@@ -166,18 +188,27 @@
     //creates the slider around the Instagram images
     //must be called after the carousel items are injected to the DOM
     function setUpInstaSlider() {
-        //define variables that we'll be needing
-        var $instaSliderWrap, $instaSlider, $items, itemNum, itemWidth, itemsWidth, $prevArrow, $nextArrow, offsetDif, initailWindowWidth, counter;
-        $instaSliderWrap = jQuery('#insta_wrapper'); //the DIV around the UL
-        $instaSlider = jQuery('#insta_photos'); //the UL
-        $items = $instaSlider.find('li'); //all the LIs
-        itemNum = $items.length; //the number of images
-        itemWidth = $items.width(); //the width of a single LI
-        itemsWidth = itemWidth * itemNum; //the total width of the image strip
-        initailWindowWidth = document.documentElement.clientWidth; //save the window width so we can chack if it was resized
-        nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth); //the number of offscreen items
-        offsetDif = windowWidth - ((itemNum - nonVisibleItemsNum) * itemWidth); //the difference between the maximum visible itmes width and the total screen width
-        counter = 0;
+        //the DIV around the UL
+        var $instaSliderWrap = jQuery(document.getElementById('insta_wrapper')),
+        //the UL
+        $instaSlider = jQuery(document.getElementById('insta_photos')),
+        //all the LIs
+        $items = $instaSlider.find('li'),
+        //the number of images
+        itemNum = $items.length,
+        //the width of a single LI
+        itemWidth = $items.width(),
+        //the total width of the image strip
+        itemsWidth  = itemWidth * itemNum,
+        //the number of offscreen items
+        nonVisibleItemsNum = itemNum - Math.ceil(windowWidth / itemWidth),
+        //the difference between the maximum visible itmes width and the total screen width
+        offsetDif = windowWidth - ((itemNum - nonVisibleItemsNum) * itemWidth),
+        //save the window width so we can chack if it was resized
+        initailWindowWidth = document.documentElement.clientWidth,
+        counter = 0,
+        $prevArrow,
+        $nextArrow;
         
         //only create and add the images if their width is larger than the screens
         if (itemsWidth > windowWidth) {
@@ -192,6 +223,24 @@
             $nextArrow.click(function(){
                     moveImages('forward');
                 });
+            
+            // Add touc support
+            if ($instaSlider.hammer) {
+                
+                $instaSlider.hammer().on('swipeleft', function() {
+                    if ($nextArrow.css('display') !== 'none') {
+                        moveImages('forward');
+                    }    
+                });
+                
+                $instaSlider.hammer().on('swiperight', function() {
+                    if ($prevArrow.css('display') !== 'none') {
+                        moveImages('back');
+                    }    
+                }); 
+                
+            }
+            
             
             //add the invsible layers to prevent missed click once the arrows fade out
             $instaSliderWrap.append('<span class="click_protect prev"></span><span class="click_protect next"></span>');
@@ -284,86 +333,75 @@
         };
     };
     
-    //call lazy load plugin on the cover images
-    jQuery(document).on('ready', function(){
-        var $langWarning = jQuery('#language_setting');
-        
-        //animate the portrait
-        //if the browser support CSS3 transitions just add a class
-        if (Modernizr.csstransitions) {
-            $portrait.addClass('show_animation');
-        }else{
-            //if not do some jQuery magic
-            $portrait.animate({
-                    width   : $portrait.parent().css('width'),
-                    height  : $portrait.parent().css('height')
-                }, 500);
-        };
-        
-        //add lazy load functionality
-        jQuery('.js_lazy_img').lazyload({effect : 'fadeIn'});
-        
-        //polyfills for lte IE8
-        if (!window.addEventListener) {
-            //emulate media queries
-            emulateMQOldIE();
-            
-            //emulate :last-child
-            jQuery('.contact_icon:last-child').addClass('last');
-            jQuery('.tag:last-child').addClass('last');
-            jQuery('.portfolio_item:last-child').addClass('last');
-        };
-        
-        /*Instagram API request*/
-        jQuery.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            cache: false,
-            //Endpoint of the most recent images of the loged in user
-            url: "https://api.instagram.com/v1/users/607261781/media/recent/?access_token=607261781.899a4e2.255f2d1d9ce145c4b9e45c51c1b900e3",
-            success: function(data) {
-                var instagramResponse = data;
-                var instagramData = instagramResponse.data;
-                /*Error handling for Instagram API*/
-                if(instagramResponse.meta.code == 200){
-                    $theFooter.prepend('<div id="insta_wrapper"><ul id="insta_photos"></ul></div>');
-                    for(i = 0; i < instagramData.length; i++){
-                        jQuery('#insta_photos').append('<li class="ie_dpi_fix"><a href="'+instagramData[i].link+'"><img class="js_lazy_insta_images" data-original="'+instagramData[i].images.thumbnail.url+'" src="images/blank.gif"></a></li>');
-                    };
-                    //call lazy load on the Instagram images added to the page
-                    jQuery('.js_lazy_insta_images').lazyload({
-                        effect : 'fadeIn',
-                        threshold : jQuery('#insta_photos').find('li').width()
-                    });
-                    
-                    //create the slider
-                    setUpInstaSlider();
-                }else{
-                    /*If Instagram returns an error*/
-                    if(window.console){
-                        console.log(instagramResponse.meta.error_type);
-                        console.log(instagramResponse.meta.code);
-                        console.log(instagramResponse.meta.error_message);			    
-                    }
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown){
-                if (window.console) {
-                    console.log(textStatus);
-                    console.log(errorThrown);
+    //show :active styles in Webkit Mobile
+    if (Modernizr.touch) {
+        document.addEventListener("touchstart", function(){}, true);
+    }
+    
+    /*Instagram API request*/
+    jQuery.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        cache: false,
+        //Endpoint of the most recent images of the loged in user
+        url: "https://api.instagram.com/v1/users/607261781/media/recent/?access_token=607261781.899a4e2.255f2d1d9ce145c4b9e45c51c1b900e3",
+        success: function(data) {
+            var instagramResponse = data;
+            var instagramData = instagramResponse.data;
+            /*Error handling for Instagram API*/
+            if(instagramResponse.meta.code == 200){
+                $theFooter.prepend('<div id="insta_wrapper"><ul id="insta_photos"></ul></div>');
+                for(i = 0; i < instagramData.length; i++){
+                    jQuery('#insta_photos').append('<li class="ie_dpi_fix"><a href="'+instagramData[i].link+'"><img class="js_lazy_insta_images" data-original="'+instagramData[i].images.thumbnail.url+'" src="images/blank.gif"></a></li>');
+                };
+                //call lazy load on the Instagram images added to the page
+                jQuery('.js_lazy_insta_images').lazyload({
+                    effect : 'fadeIn',
+                    threshold : jQuery(document.getElementById('insta_photos')).find('li').width()
+                });
+                
+                //create the slider
+                setUpInstaSlider();
+            }else{
+                /*If Instagram returns an error*/
+                if(window.console){
+                    console.log(instagramResponse.meta.error_type);
+                    console.log(instagramResponse.meta.code);
+                    console.log(instagramResponse.meta.error_message);			    
                 }
             }
-        });
-        
-        //stuff for the warning DIV
-        //add the close function to the button
-        jQuery('#close_warning').on('click', function(){
-            hideLangWarning();
-        });
-        
-        //show the DIV
-        if ($langWarning.length && getCookie('seenLangSetting') === '') {
-            $langWarning.slideDown(250);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            if (window.console) {
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
         }
     });
+    
+    //add lazy load functionality
+    jQuery('.js_lazy_img').lazyload({effect : 'fadeIn'});
+    
+    //polyfills for lte IE8
+    if (!window.addEventListener) {
+        //emulate media queries
+        emulateMQOldIE();
+        
+        //emulate :last-child
+        jQuery('.contact_icon:last-child').addClass('last');
+        jQuery('.tag:last-child').addClass('last');
+        jQuery('.portfolio_item:last-child').addClass('last');
+    };
+    
+    //stuff for the warning DIV
+    //add the close function to the button
+    jQuery(document.getElementById('close_warning')).on('click', function(){
+        hideLangWarning();
+    });
+    
+    //show the language warning DIV
+    if ($langWarning.length && !seenLangSettings) {
+        $langWarning.slideDown(250);
+    }
+    
 })(jQuery);

@@ -1,6 +1,6 @@
 <?php if(isset($_REQUEST['lang']) == false && ($detectedLang !== 'hu')) : ?>
     <!--language warning-->
-    <div class="warning" id="language_setting">
+    <div class="warning_panel" id="language_setting">
         <p>
             <?=$dict['lang_setting_txt']?>
         </p>
