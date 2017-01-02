@@ -32,13 +32,6 @@
 	
 	<?php include_once('_langwarning.php'); ?>
 	
-	<div class="loading-layer">
-	    <div class="loading-layer-content">
-		<img src="images/logo_loading.png" alt="Bear Design" class="loading-logo">
-		<span class="loading-animation-text"><?=$dict['loading']?></span>
-	    </div>
-	</div>
-	
 	<?php include_once('_js.php'); ?>
     </body>
 </html>

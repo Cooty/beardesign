@@ -338,15 +338,32 @@ body {
     top: 20%;
   }
 }
+@-webkit-keyframes scale_to_full {
+  0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@keyframes scale_to_full {
+  0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
 .content_section {
   padding-bottom: 3em;
 }
 #the_footer,
 .content_section {
   text-align: center;
-}
-.portfolio_cover_pic, .portrait_cont, .portrait {
-  background-color: #fff;
 }
 .circle {
   -webkit-border-radius: 50%;
@@ -357,16 +374,20 @@ body {
   margin-right: 1em;
   display: block;
   text-align: center;
+  background-color: #efefef;
+  box-shadow: 0 1px 1px #b9b9b9 inset;
   width: 134px;
   height: 134px;
 }
 .portrait {
-  width: 0px;
-  height: 0px;
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  width: 100%;
+  height: 100%;
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3);
-  -webkit-transition: .3s width ease-in, .3s height ease-in;
-  transition: .3s width ease-in, .3s height ease-in;
+  -webkit-animation: scale_to_full ease-in 0.3s forwards;
+  animation: scale_to_full ease-in 0.3s forwards;
 }
 .portrait.show_animation {
   width: 100%;
@@ -393,6 +414,7 @@ body {
   padding: 9px;
   width: 90%;
   max-height: 486px;
+  background-color: #fff;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
   -webkit-transition: .3s width ease-in, .3s height ease-in;
@@ -545,28 +567,6 @@ strong em {
   transition: 0.3s background-color ease-in, 0.3s color ease-in, 0.3s box-shadow ease-in;
   border-bottom: none;
 }
-.centered_text .proa:hover,
-.centered_text .proa:focus,
-.centered_text .proa:active {
-  color: #ffffff;
-  background-color: #a0cf1b;
-  text-shadow: none;
-  -webkit-box-shadow: 3px 0 0 #a0cf1b, -3px 0 0 #a0cf1b;
-  box-shadow: 3px 0 0 #a0cf1b, -3px 0 0 #a0cf1b;
-  -webkit-transition: 0.3s background-color ease-in, 0.3s color ease-in, 0.3s -webkit-box-shadow ease-in, 0.3s box-shadow ease-in;
-  transition: 0.3s background-color ease-in, 0.3s color ease-in, 0.3s box-shadow ease-in;
-}
-.centered_text .carna:hover,
-.centered_text .carna:focus,
-.centered_text .carna:active {
-  color: #ffffff;
-  background-color: #000000;
-  text-shadow: none;
-  -webkit-box-shadow: 3px 0 0 #000000, -3px 0 0 #000000;
-  box-shadow: 3px 0 0 #000000, -3px 0 0 #000000;
-  -webkit-transition: 0.3s background-color ease-in, 0.3s color ease-in, 0.3s -webkit-box-shadow ease-in, 0.3s box-shadow ease-in;
-  transition: 0.3s background-color ease-in, 0.3s color ease-in, 0.3s box-shadow ease-in;
-}
 .js_donthyphenate {
   white-space: nowrap;
 }
@@ -617,43 +617,31 @@ strong em {
   box-shadow: 0 4px 0 -2px rgba(0, 0, 0, 0.2);
   background: #3c93d7;
   /* Old browsers */
-
   background: -moz-linear-gradient(top, #3c93d7 0%, #1a7bc6 100%);
   /* FF3.6+ */
-
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3c93d7), color-stop(100%, #1a7bc6));
   /* Chrome,Safari4+ */
-
   background: -webkit-linear-gradient(top, #3c93d7 0%, #1a7bc6 100%);
   /* Chrome10+,Safari5.1+ */
-
   background: -o-linear-gradient(top, #3c93d7 0%, #1a7bc6 100%);
   /* Opera 11.10+ */
-
   background: linear-gradient(to bottom, #3c93d7 0%, #1a7bc6 100%);
   /* W3C */
-
 }
 .btn:active,
 .btn:focus {
   background: #1a7bc6;
   /* Old browsers */
-
   background: -moz-linear-gradient(top, #1a7bc6 0%, #3c93d7 100%);
   /* FF3.6+ */
-
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1a7bc6), color-stop(100%, #3c93d7));
   /* Chrome,Safari4+ */
-
   background: -webkit-linear-gradient(top, #1a7bc6 0%, #3c93d7 100%);
   /* Chrome10+,Safari5.1+ */
-
   background: -o-linear-gradient(top, #1a7bc6 0%, #3c93d7 100%);
   /* Opera 11.10+ */
-
   background: linear-gradient(to bottom, #1a7bc6 0%, #3c93d7 100%);
   /* W3C */
-
   border-color: #3c93d7;
   margin-top: 1px;
 }
@@ -793,7 +781,7 @@ strong em {
 #back_to_top_link .icon,
 .insta_arrow:after,
 .insta_arrow .icon {
-  background-image: url(//dl.dropboxusercontent.com/u/6251317/sprites.svg);
+  background-image: url(../images/sprites.svg);
 }
 .no-svg .icon_out:before,
 .no-svg .icon_out_icon,
@@ -803,7 +791,7 @@ strong em {
 .no-svg #back_to_top_link .icon,
 .no-svg .insta_arrow:after,
 .no-svg .insta_arrow .icon {
-  background-image: url(//dl.dropboxusercontent.com/u/6251317/sprites.png);
+  background-image: url(../images/sprites.png);
 }
 .icon-linkedin,
 .contact_icon.linkedin_icon:before,
@@ -985,73 +973,6 @@ strong em {
 }
 .warning_panel p {
   margin-bottom: .8em;
-}
-@-webkit-keyframes blink-bloading-text {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-@-moz-keyframes blink-bloading-text {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-@-o-keyframes blink-bloading-text {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-@keyframes blink-bloading-text {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-.loading-layer {
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #efefef;
-}
-.loading-layer .loading-layer-content {
-  position: absolute;
-  width: 200px;
-  height: 128px;
-  top: 50%;
-  left: 50%;
-  margin: -64px 0 0 -100px;
-  text-align: center;
-}
-.loading-layer .loading-logo {
-  display: block;
-  width: 88px;
-  height: 100px;
-  margin: 0 auto 10px auto;
-}
-.loading-layer .loading-animation-text {
-  font-size: 12px;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: none;
-  -o-animation: blink-bloading-text ease-in 0.6s infinite alternate;
-  -webkit-animation: blink-bloading-text ease-in 0.6s infinite alternate;
-  -moz-animation: blink-bloading-text ease-in 0.6s infinite alternate;
-  animation: blink-bloading-text ease-in 0.6s infinite alternate;
 }
 @media only screen and (min-width: 1220px) {
   #intro .centered_text {

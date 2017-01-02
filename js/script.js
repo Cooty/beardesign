@@ -19,26 +19,7 @@
     $body = jQuery('body'),
     windowWidth = document.documentElement.clientWidth,
     $langWarning = jQuery(document.getElementById('language_setting')),
-    seenLangSettings = window.localStorage ? localStorage.seenLangSetting : getCookie('seenLangSetting'),
-    $loadingLayer = jQuery('.loading-layer');
-    
-    //remove the loading layer
-    $(window).on('load', function() {
-        
-        $loadingLayer.fadeOut(300, function() {
-            //animate the portrait
-            //if the browser support CSS3 transitions just add a class
-            if (Modernizr.csstransitions) {
-                $portrait.addClass('show_animation');
-            }else{
-                //if not do some jQuery magic
-                $portrait.animate({
-                        width   : $portrait.parent().css('width'),
-                        height  : $portrait.parent().css('height')
-                    }, 500);
-            };    
-        });
-    });
+    seenLangSettings = window.localStorage ? localStorage.seenLangSetting : getCookie('seenLangSetting');
     
     //animated scroll to top for the back to top link
     $backToTopLink.on('click', function(e){

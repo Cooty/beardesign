@@ -6,7 +6,7 @@
         'og_title' => 'Beardesign.hu,',
         'og_desc' => 'Hello World! This is the personal website of Tamas Kuti, front-end developer/webdesigner from Budapest Hungary',
         'my_name' => 'Tamás Kuti',
-        'intro_txt' => '<em class="hello">Hi!</em> My name is <em>Tamás&nbsp;Kuti</em>, I design and code websites. Currently I’m a <em>front&ndash;end developer</em> at <a href="http://cee.possible.com/" class="carna">POSSIBLE CEE</a> and formerly at <a href="http://proaction.hu" class="proa">proaction</a>. This is my personal space on the Internet.',
+        'intro_txt' => '<em class="hello">Hi!</em> My name is <em>Tamás&nbsp;Kuti</em>, I design and code websites. This is my personal space on the Internet.',
         'portfolio_title' => 'A few sites I have worked on',
         'vszek_title' => 'Vszek.hu',
         'vszek_txt' => 'The Heart and Vascular Center of Semmelweis University servers as both medical and educational facility and also as a research centre. The website was designed to reflect this triple role. The site was made by the team at proaction, my role in the project was front&ndash;end development.',

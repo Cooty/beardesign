@@ -6,7 +6,7 @@
         'og_title' => 'Beardesign.hu,',
         'og_desc' => 'Helló Világ! Ez itt a Kuti Tamás front-end fejlesztő/webdizájner személyes zuga az Interneten',
         'my_name' => 'Kuti Tamás',
-        'intro_txt' => '<em class="hello">Üdv!</em> A nevem <em>Kuti&nbsp;Tamás</em>, weboldalakat rajzolok és kódolok. Korábban a <a href="http://proaction.hu" class="proa js_donthyphenate">proactionnél</a> voltam, jelenleg pedig a <a href="http://cee.possible.com/" class="carna">POSSIBLE-nél</a> vagyok <em>front&ndash;end fejlesztő</em>. Ez itt az én személyes zugom az Interneten.',
+        'intro_txt' => '<em class="hello">Üdv!</em> A nevem <em>Kuti&nbsp;Tamás</em>, weboldalakat rajzolok és kódolok. Ez itt az én személyes zugom az Interneten.',
         'portfolio_title' => 'Néhány oldal, amin dolgoztam',
         'vszek_title' => 'Vszek.hu',
         'vszek_txt' => 'A Semmelweis Egyetem Városmajor Szív- és Érgyógyászati Klinikája egyszerre lát el gyógyítási, oktatási és kutatási szerepet. A weboldal is ennek a &bdquo;hármasságnak&rdquo; megfelelően lett kialakíktva. A projektet a proaction csapata hozta tető alá, melyben az én szerepem a front&ndash;end fejlesztés volt.',
