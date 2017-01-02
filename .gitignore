@@ -213,3 +213,13 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Komodo
+*.komodoproject
+*.kpf
+
+#JetBrains
+.idea/
+
+#Node.js
+node_modules/
